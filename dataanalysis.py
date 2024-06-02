@@ -99,4 +99,4 @@ for country, life_expectancies in country_year_life_expectancy.items():
 if largest_drop_value > 0:
     print(f"The largest drop in life expectancy between consecutive years was in {largest_drop_country} with a drop of {largest_drop_value:.2f}")
 else:
-    print("No drop in life expectancy found")
+    print("No significant drop in life expectancy found")
