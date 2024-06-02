@@ -16,7 +16,7 @@ data = []
 
 # Open the file and read its contents
 with open(file_path) as file:
-    next(file)  # Skip the header line
+    header = next(file)  # Skip the header line
     for line in file:
         parts = line.strip().split(',')
         country = parts[0]
@@ -74,17 +74,15 @@ else:
     print(f"No data available for the year {year_of_interest}")
 
 # Creative addition: Find the largest drop in life expectancy between consecutive years for any country
-country_life_expectancy_changes = {}
-
-# Organize data by country and year
 from collections import defaultdict
+
 country_year_life_expectancy = defaultdict(list)
 for country, year, life_expectancy in data:
     country_year_life_expectancy[country].append((year, life_expectancy))
 
-# Find the largest drop for each country
 largest_drop_country = ""
 largest_drop_value = 0
+
 for country, life_expectancies in country_year_life_expectancy.items():
     life_expectancies.sort()  # Sort by year
     previous_life_expectancy = None
